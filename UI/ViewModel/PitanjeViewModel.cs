@@ -314,7 +314,7 @@ namespace UI.ViewModel
             }
             catch(Exception e)
             {
-                MessageBox.Show("Izaberite ID za brisanje!", "Greska", MessageBoxButton.OK);
+                MessageBox.Show(e.Message, "Greska", MessageBoxButton.OK);
             }
         }
 

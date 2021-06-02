@@ -228,7 +228,7 @@ namespace UI.ViewModel
             }
             catch (Exception e)
             {
-                MessageBox.Show("Nesto nije u redu kod dodavanja", "Greska", MessageBoxButton.OK);
+                MessageBox.Show(e.Message, "Greska", MessageBoxButton.OK);
             }
 
         }

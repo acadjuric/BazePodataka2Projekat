@@ -209,7 +209,7 @@ namespace UI.ViewModel
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message, "Greska", MessageBoxButton.OK);
             }
         }
 
