@@ -16,7 +16,7 @@
         <ComboBox Width="100" Height="30" Margin="517,26,483,844"></ComboBox>
         <ComboBox Width="100" Height="30" Margin="384,26,616,844"></ComboBox>
         <Button Content="Pitanja za Test" Width="100" Height="30" Margin="447,95,553,775"></Button>
-
+        <Label Content="aloooo "></Label>
         <DataGrid Width="500" Height="300" Margin="30,163,570,437" IsReadOnly="True" ItemsSource="{Binding SveTeme}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
 
             <DataGrid.Columns>
