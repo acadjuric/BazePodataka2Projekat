@@ -1,0 +1,18 @@
+﻿USE [ProjekatBazePodataka2]
+GO
+/****** Object:  Trigger [dbo].[t_NastavnaTemaDodavanje]    Script Date: 6/2/2021 11:08:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER trigger [dbo].[t_NastavnaTemaDodavanje]
+on [dbo].[NastavneTeme]
+instead of insert
+as 
+begin
+/*ne treba id, sama baza dodaje */
+declare @naziv varchar(50);
+select @naziv = i.Naziv from inserted i;
+insert into NastavneTeme(Naziv) values(@naziv);
+print 'Triger za dodavanje Nastavne teme je pozvan';
+end

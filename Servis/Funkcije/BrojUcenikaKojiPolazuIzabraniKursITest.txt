@@ -1,0 +1,15 @@
+﻿USE [ProjekatBazePodataka2]
+GO
+/****** Object:  UserDefinedFunction [dbo].[f_BrojUcenikaKojiPolazuIzabraniKursITest]    Script Date: 6/2/2021 11:11:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER function [dbo].[f_BrojUcenikaKojiPolazuIzabraniKursITest](@kursId int, @testId int)
+returns int
+begin
+	declare @brojUcenikaKojiPolazu int;
+	select @brojUcenikaKojiPolazu = count(Prijavljeni.UcenikIdKorisnika) from ((Kursevi inner join Prijavljeni on Kursevi.IdKursa = Prijavljeni.KursIdKursa) inner join Polazes on Kursevi.IdKursa = Polazes.PrijavljenKursIdKursa and Prijavljeni.UcenikIdKorisnika = Polazes.PrijavljenUcenikIdKorisnika)
+			where Kursevi.IdKursa=@kursId and Polazes.TestIdTesta = @testId
+	return @brojUcenikaKojiPolazu;
+end

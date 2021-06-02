@@ -1,0 +1,26 @@
+﻿USE [ProjekatBazePodataka2]
+GO
+/****** Object:  StoredProcedure [dbo].[p_ImePrezimeZvanjeNastavnikaZaKurs]    Script Date: 6/2/2021 11:09:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[p_ImePrezimeZvanjeNastavnikaZaKurs](@kursId int)
+  as 
+  begin try
+  declare @ime varchar(50), @prezime varchar(50), @zvanje varchar(50);
+
+  select @ime = Korisnici.Ime from (((Prijavljeni inner join Kursevi on Prijavljeni.KursIdKursa = Kursevi.IdKursa) full join Korisnici_Nastavnik on Kursevi.NastavnikIdKorisnika = Korisnici_Nastavnik.IdKorisnika)
+				inner join Korisnici on Korisnici_Nastavnik.IdKorisnika = Korisnici.IdKorisnika) where Prijavljeni.KursIdKursa =@kursId
+
+  select @prezime = Korisnici.Prezime from (((Prijavljeni inner join Kursevi on Prijavljeni.KursIdKursa = Kursevi.IdKursa) full join Korisnici_Nastavnik on Kursevi.NastavnikIdKorisnika = Korisnici_Nastavnik.IdKorisnika)
+				inner join Korisnici on Korisnici_Nastavnik.IdKorisnika = Korisnici.IdKorisnika) where Prijavljeni.KursIdKursa =@kursId
+
+  select @zvanje = Korisnici_Nastavnik.Zvanje from (((Prijavljeni inner join Kursevi on Prijavljeni.KursIdKursa = Kursevi.IdKursa) full join Korisnici_Nastavnik on Kursevi.NastavnikIdKorisnika = Korisnici_Nastavnik.IdKorisnika)
+				inner join Korisnici on Korisnici_Nastavnik.IdKorisnika = Korisnici.IdKorisnika) where Prijavljeni.KursIdKursa =@kursId
+
+select @ime as Ime,@prezime as Prezime,@zvanje as Zvanje; 
+ end try
+ begin catch
+ select ERROR_NUMBER() as ErrorNumber, ERROR_MESSAGE() as ErrorMessage
+ end catch

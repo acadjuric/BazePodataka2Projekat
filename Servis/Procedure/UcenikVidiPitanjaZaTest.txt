@@ -1,0 +1,34 @@
+﻿USE [ProjekatBazePodataka2]
+GO
+/****** Object:  StoredProcedure [dbo].[p_UcenikVidiPitanjaZaTest]    Script Date: 6/2/2021 11:10:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[p_UcenikVidiPitanjaZaTest](@kursId int, @testId int)
+  as
+  print 'testId-> ' + cast(@testId as nvarchar(5))
+  print 'kursId-> ' + cast(@kursId as nvarchar(5))
+
+  declare ucenikVidiPitanjaZaTestCursor cursor
+  for select Pitanja.Nivo, Pitanja.Tekst from (((Polazes INNER JOIN Testovi on Polazes.TestIdTesta = Testovi.IdTesta) INNER JOIN Sastojis ON Sastojis.TestIdTesta = Testovi.IdTesta) INNER JOIN Pitanja ON Pitanja.IdPitanja = Sastojis.PitanjeIdPitanja)
+  where Polazes.PrijavljenKursIdKursa = @kursId and Sastojis.TestIdTesta = @testId order by Pitanja.Nivo asc;
+
+  declare @nivoPitanja int ,@tekstPitanja nvarchar(max);
+  declare @svapitanja  table(Nivo int, TekstPitanja varchar(max));
+	begin
+	 open ucenikVidiPitanjaZaTestCursor;	 
+	 fetch next from ucenikVidiPitanjaZaTestCursor into @nivoPitanja ,@tekstPitanja;
+	 while @@FETCH_STATUS = 0
+		begin
+			insert into @svapitanja(Nivo,TekstPitanja) values(@nivoPitanja,@tekstPitanja);
+			print 'Fetch Status: ' + cast(@@FETCH_STATUS as varchar(20));
+			print 'Nivo-> '+ cast(@nivoPitanja as nvarchar(10))+' Tekst ->' + @tekstPitanja; 
+			fetch next from ucenikVidiPitanjaZaTestCursor into @nivoPitanja ,@tekstPitanja;
+			
+			
+		end
+		close ucenikVidiPitanjaZaTestCursor
+		deallocate ucenikVidiPitanjaZaTestCursor
+		select * from @svapitanja;
+	end 

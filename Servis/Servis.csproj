@@ -172,9 +172,20 @@
       <LastGenOutput>BazePodataka2Model.cs</LastGenOutput>
       <DependentUpon>BazePodataka2Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Funkcije\BrojSvihObavestenjaZaKorisnika.txt" />
+    <Content Include="Funkcije\BrojTestovaZaKurs.txt" />
+    <Content Include="Funkcije\BrojUcenikaKojiPolazuIzabraniKursITest.txt" />
+    <Content Include="Procedure\ImePrezimeZvanjeNastavnikaZaKurs.txt" />
+    <Content Include="Procedure\NastavnikoveNastavneTeme.txt" />
+    <Content Include="Procedure\UcenikVidiPitanjaZaTest.txt" />
+    <Content Include="Trigeri\TrigerNastavnaTema.txt" />
+    <Content Include="Trigeri\TrigerOdgovor.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Index\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

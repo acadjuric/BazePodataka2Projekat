@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1100" Background="White">
     <Grid>
-        <Label Content="Ovo je kursNastavnaTema View" FontSize="14"/>
+        <Label Content="Ovo je Kurs Nastavna Tema View" FontSize="14"/>
         <Label Content="Kurs id"  Height="30" Width="70" Margin="10,31,990,839"></Label>
         <ComboBox ItemsSource="{Binding IDSvakogKursa}" SelectedItem="{Binding KursDodavanje}" Width="120" Height="30" Margin="100,31,880,839"></ComboBox>
         <Label Content="Tema id"  Height="30" Width="70" Margin="10,66,990,804"></Label>

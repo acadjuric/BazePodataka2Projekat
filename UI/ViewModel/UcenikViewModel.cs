@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using UI.Helpers;
@@ -279,12 +280,26 @@ namespace UI.ViewModel
                 MessageBox.Show("Prezime mora imati minimum 3 karaktera", "Greska", MessageBoxButton.OK);
                 return false;
             }
-            if (TBEmail.Length < 3)
+            
+
+            // '^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$'  patter za email
+            Regex r = new Regex("^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$");
+            if (!r.IsMatch(TBEmail))
             {
-                MessageBox.Show("Email mora imati minimum 3 karaktera", "Greska", MessageBoxButton.OK);
+                MessageBox.Show("Email nije u validnom formatu email", "Greska", MessageBoxButton.OK);
                 return false;
             }
-
+            Regex r1 = new Regex("\\d+");
+            if (r1.IsMatch(TBIme))
+            {
+                MessageBox.Show("Ime ne sme da sadrzi brojeve", "Greska", MessageBoxButton.OK);
+                return false;
+            }
+            if (r1.IsMatch(TBPrezime))
+            {
+                MessageBox.Show("Prezime ne sme da sadrzi brojeve", "Greska", MessageBoxButton.OK);
+                return false;
+            }
             return true;
 
         }
@@ -338,6 +353,24 @@ namespace UI.ViewModel
                 return false;
             }
 
+            Regex r = new Regex("^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$");
+            if (!r.IsMatch(TBEmailIzmena))
+            {
+                MessageBox.Show("Email nije u validnom formatu email", "Greska", MessageBoxButton.OK);
+                return false;
+            }
+
+            Regex r1 = new Regex("\\d+");
+            if (r1.IsMatch(TBImeIzmena))
+            {
+                MessageBox.Show("Ime izmena ne sme da sadrzi brojeve", "Greska", MessageBoxButton.OK);
+                return false;
+            }
+            if (r1.IsMatch(TBPrezimeIzmena))
+            {
+                MessageBox.Show("Prezime izmena ne sme da sadrzi brojeve", "Greska", MessageBoxButton.OK);
+                return false;
+            }
             return true;
         }
     }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1100" Background="White">
     <Grid>
-        <Label Content="Ovo je Nastavnik VIew" FontSize="14" />
+        <Label Content="Ovo je Nastavnik View" FontSize="14" />
         <Label  Content="Email adresa"  Height="30" Width="100" Margin="10,31,990,839"></Label>
         <TextBox Text="{Binding TBEmail}"  Height="30" Width="150" Margin="115,31,835,839"></TextBox>
         <Label Content="Sifra"  Height="30" Width="100"  Margin="10,66,990,804"></Label>

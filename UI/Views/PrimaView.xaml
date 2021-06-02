@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1100" Background="White">
     <Grid>
-        <Label Content="Ovo je Prima View" FontSize="14"/>
+        <Label Content="Prima View" FontSize="14"/>
         <Label Content="Obavestenje id"  Height="30" Width="100" Margin="10,31,990,839"></Label>
         <ComboBox ItemsSource="{Binding IDSvakogObavestenja}" SelectedItem="{Binding IzabranoObavestenje}" Width="120" Height="30" Margin="115,31,865,839"></ComboBox>
         <Label Content="Korisnik id"  Height="30" Width="100" Margin="10,66,990,804"></Label>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1100" Background="White">
     <Grid>
-        <Label FontSize="14" Content="ALOOOOOOOOOOOOO RADIIIIIIIIIIII"/>
+        <Label FontSize="14" Content="Obavestenje View"/>
         <Label  Content="Naslov"  Height="30" Width="100" Margin="10,31,990,839"></Label>
         <TextBox Text="{Binding TBNaslov}"  Height="30" Width="150" Margin="115,31,835,839"></TextBox>
         <Label Content="Datum"  Height="30" Width="100"  Margin="10,100,990,764" ></Label>
@@ -32,7 +32,7 @@
         <ComboBox ItemsSource="{Binding IDSvakogObavestenja}" SelectedItem="{Binding IdBrisanje}" Width="100" Height="30" Margin="965,31,35,839" />
         <Button Command="{Binding Izbrisi}" Content="Izbrisi" Width="50" Height="30" Margin="996,83,54,787"></Button>
 
-        <DataGrid IsReadOnly="True" ItemsSource="{Binding SvaObavestenja}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="700" Margin="10,190,0,0" VerticalAlignment="Top" Width="980" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+        <DataGrid IsReadOnly="True" ItemsSource="{Binding SvaObavestenja}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="700" Margin="10,190,0,0" VerticalAlignment="Top" Width="1000" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
 
             <DataGrid.Columns>
 

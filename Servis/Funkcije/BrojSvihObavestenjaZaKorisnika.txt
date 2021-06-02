@@ -1,0 +1,22 @@
+﻿USE [ProjekatBazePodataka2]
+GO
+/****** Object:  UserDefinedFunction [dbo].[f_BrojSvihObavestenjaZaKorisnika]    Script Date: 6/2/2021 11:11:29 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER function [dbo].[f_BrojSvihObavestenjaZaKorisnika](@korisnikId int)
+returns int
+begin
+declare @svaPoslataIPrimljenaObavestenja int
+select @svaPoslataIPrimljenaObavestenja =
+				/* POSLATA */
+(select count( distinct Obavestenja.IdObavestenja) from (Korisnici inner join Obavestenja on Korisnici.IdKorisnika = Obavestenja.KorisnikIdKorisnika)
+				inner join PrimljenaObavestenja on PrimljenaObavestenja.KorisnikIdKorisnika = Korisnici.IdKorisnika where Korisnici.IdKorisnika =@korisnikId) 
+				+
+				/* PRIMLJENA*/
+(select count(distinct PrimljenaObavestenja.ObavestenjeIdObavestenja) from (Korisnici inner join Obavestenja on Korisnici.IdKorisnika = Obavestenja.KorisnikIdKorisnika)
+				inner join PrimljenaObavestenja on PrimljenaObavestenja.KorisnikIdKorisnika = Korisnici.IdKorisnika where Korisnici.IdKorisnika =@korisnikId);
+
+	return @svaPoslataIPrimljenaObavestenja
+end

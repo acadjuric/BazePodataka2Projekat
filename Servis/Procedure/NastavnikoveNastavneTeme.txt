@@ -1,0 +1,19 @@
+﻿USE [ProjekatBazePodataka2]
+GO
+/****** Object:  StoredProcedure [dbo].[p_NastavnikoveNastavneTeme]    Script Date: 6/2/2021 11:10:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[p_NastavnikoveNastavneTeme] (@nastavnikId int) 
+  as
+  begin try
+  select Kursevi.Naziv as Naziv_Kursa,NastavneTeme.Naziv as Naziv_Teme from ((Kursevi INNER JOIN Sadrzis on Sadrzis.KursIdKursa = Kursevi.IdKursa)  INNER JOIN NastavneTeme On NastavneTeme.IdTeme = Sadrzis.NastavnaTemaIdTeme) where
+  Kursevi.NastavnikIdKorisnika = @nastavnikId
+  end try
+
+  begin catch
+  select ERROR_NUMBER() as ErrorNumber, ERROR_MESSAGE() as ErrorMessage
+  end catch
+
+  /* Vraca za Nastavnika sve njegove nastavne teme  */
