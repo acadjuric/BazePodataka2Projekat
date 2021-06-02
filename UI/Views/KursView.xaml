@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="UI.Views.KursView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1100" Background="White">
+    <Grid>
+        <Label Content="Ovo je kUrs" FontSize="14"/>
+        <Label Content="Naziv"  Height="30" Width="100" Margin="10,31,990,839"></Label>
+        <TextBox Text="{Binding TBNaziv}"  Height="30" Width="150" Margin="115,31,835,839" ></TextBox>
+        <Label Content="Poeni"  Height="30" Width="100" Margin="10,66,990,804"></Label>
+        <TextBox Text="{Binding TBPoeni}"  Height="30" Width="150" Margin="115,66,835,804"></TextBox>
+        <Label Content="Nastavnik id" Width="100" Height="30" Margin="10,101,990,769"></Label>
+        <ComboBox ItemsSource="{Binding IdSvihKorisnika}" SelectedItem="{Binding IzabraniKorisnik}" Width="150" Height="30" Margin="115,101,835,769"></ComboBox>
+        <Button Name="KreirajOdgovor" Command="{Binding Kreiraj}" Content="Kreiraj" Width="50" Height="30" Margin="305,46,745,824"></Button>
+        <Button Command="{Binding DodajTeme}" Content="Dodaj Teme" Width="100" Height="30" Margin="165,136,835,734"></Button>
+
+        <ComboBox ItemsSource="{Binding IDSvakogKursa}" SelectedItem="{Binding IdIzmena}" Width="100" Height="30" Margin="405,31,595,839" />
+        <Label  Content="Novi Naziv:"  Height="30" Width="100" Margin="525,31,475,839"></Label>
+        <TextBox Text="{Binding TBNazivIzmena}"  Height="30" Width="150" Margin="645,31,305,839"></TextBox>
+        <Label Content="Novi Poeni"  Height="30" Width="100"  Margin="525,66,475,804"></Label>
+        <TextBox Text="{Binding TBPoeniIzmena}"  Height="30" Width="150" Margin="645,66,305,804"  ></TextBox>
+        <Label Content="Novi nastavnik id"  Width="100" Height="30" Margin="525,101,475,769"></Label>
+        <ComboBox ItemsSource="{Binding IdSvihKorisnika}" SelectedItem="{Binding IzabraniKorisnikIzmena}" Width="150" Height="30" Margin="645,101,305,769"></ComboBox>
+        <Button Command="{Binding IzmeniTeme}" Content="Izmeni Teme" Width="100" Height="30" Margin="695,136,305,734"></Button>
+        <Button Command="{Binding Izmeni}" Content="Izmeni" Width="50" Height="30" Margin="817,46,233,824"></Button>
+
+        <ComboBox ItemsSource="{Binding IDSvakogKursa}" SelectedItem="{Binding IdBrisanje}" Width="100" Height="30" Margin="965,31,35,839" />
+        <Button Command="{Binding Izbrisi}" Content="Izbrisi" Width="50" Height="30" Margin="996,83,54,787"></Button>
+
+        <DataGrid x:Name="GridSaOdgovorima" IsReadOnly="True" ItemsSource="{Binding SviKursevi}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="685" Margin="10,184,0,0" VerticalAlignment="Top" Width="799" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+
+            <DataGrid.Columns>
+
+                <!--ID Kolona-->
+                <DataGridTextColumn Header="ID Kursa"  Binding="{Binding IdKursa}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Naziv kolona-->
+
+                <DataGridTextColumn Header="Naziv"  Binding="{Binding Naziv}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Poeni kolona-->
+
+                <DataGridTextColumn Header="Poeni"  Binding="{Binding Poeni}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Nastavnik kolona-->
+
+                <DataGridTextColumn Header="Nastavnik kolona"  Binding="{Binding NastavnikIdKorisnika}" Width="*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,186 @@
+﻿<UserControl x:Class="UI.Views.UcenikView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1100" Background="White">
+    <Grid>
+        <Label Content="Ovo je Nastavnik VIew" FontSize="14" />
+        <Label  Content="Email adresa"  Height="30" Width="100" Margin="10,31,990,839"></Label>
+        <TextBox Text="{Binding TBEmail}"  Height="30" Width="150" Margin="115,31,835,839"></TextBox>
+        <Label Content="Sifra"  Height="30" Width="100"  Margin="10,66,990,804"></Label>
+        <TextBox Text="{Binding TBSifra}"  Height="30" Width="150" Margin="115,66,835,804"  />
+        <Label Content="Ime"  Height="30" Width="100"  Margin="10,100,990,764"></Label>
+        <TextBox Text="{Binding TBIme}"  Height="30" Width="150" Margin="115,100,835,768"  ></TextBox>
+        <Label Content="Prezime"  Height="30" Width="100"  Margin="10,138,990,732"></Label>
+        <TextBox Text="{Binding TBPrezime}"  Height="30" Width="150" Margin="115,138,835,732"  ></TextBox>
+        <Label Content="Razred"  Height="30" Width="100"  Margin="10,173,990,697"></Label>
+        <TextBox Text="{Binding TBRazred}"  Height="30" Width="150" Margin="115,173,835,697"  ></TextBox>
+        <Button Name="KreirajOdgovor" Command="{Binding Kreiraj}" Content="Kreiraj" Width="50" Height="30" Margin="282,100,768,770"></Button>
+
+        <ComboBox ItemsSource="{Binding EmailSvakogUcenika}" SelectedItem="{Binding EmailIzmena}" Width="140" Height="30" Margin="365,31,595,839" />
+        <Label  Content="Novi Email"  Height="30" Width="100" Margin="525,31,475,839"></Label>
+        <TextBox Text="{Binding TBEmailIzmena}"  Height="30" Width="150" Margin="645,31,305,839"></TextBox>
+        <Label Content="Nova Sifra"  Height="30" Width="100"  Margin="525,66,475,804"></Label>
+        <TextBox  Text="{Binding TBSifraIzmena}"  Height="30" Width="150" Margin="645,66,305,804" />
+        <Label Content="Novo Ime"  Height="30" Width="100"  Margin="525,100,475,767"></Label>
+        <TextBox Text="{Binding TBImeIzmena}"  Height="30" Width="150" Margin="645,100,305,768"  ></TextBox>
+        <Label Content="Novo Prezime"  Height="30" Width="100"  Margin="525,138,475,732"></Label>
+        <TextBox Text="{Binding TBPrezimeIzmena}"  Height="30" Width="150" Margin="645,138,305,732"  ></TextBox>
+        <Label Content="Novi Razred"  Height="30" Width="100"   Margin="525,173,475,697"></Label>
+        <TextBox Text="{Binding TBRazredIzmena}"  Height="30" Width="150"  Margin="645,173,305,697"  ></TextBox>
+        <Button Command="{Binding Izmeni}" Content="Izmeni" Width="50" Height="30" Margin="821,100,229,770"></Button>
+
+        <ComboBox ItemsSource="{Binding EmailSvakogUcenika}" SelectedItem="{Binding EmailBrisanje}" Width="150" Height="30" Margin="924,31,26,839" />
+        <Button Command="{Binding Izbrisi}" Content="Izbrisi" Width="50" Height="30" Margin="988,100,62,770"></Button>
+
+
+        <DataGrid IsReadOnly="True" ItemsSource="{Binding SviUcenici}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="659" Margin="10,231,0,0" VerticalAlignment="Top" Width="1028" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+
+            <DataGrid.Columns>
+
+                <!--ID Kolona-->
+                <DataGridTextColumn Header="ID Ucenika"  Binding="{Binding IdKorisnika}" Width="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <!--Email Kolona-->
+                <DataGridTextColumn Header="Email Ucenika"  Binding="{Binding EmailAdresa}" Width="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Sifra kolona-->
+
+                <DataGridTextColumn Header="Sifra"  Binding="{Binding Sifra}" Width="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Ime kolona-->
+
+                <DataGridTextColumn Header="Ime"  Binding="{Binding Ime}" Width="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <!--Prezime kolona-->
+
+                <DataGridTextColumn Header="Prezime"  Binding="{Binding Prezime}" Width="150">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Razred kolona-->
+
+                <DataGridTextColumn Header="Razred"  Binding="{Binding Razred}" Width="*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

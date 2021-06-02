@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="UI.Views.PrimaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1100" Background="White">
+    <Grid>
+        <Label Content="Ovo je Prima View" FontSize="14"/>
+        <Label Content="Obavestenje id"  Height="30" Width="100" Margin="10,31,990,839"></Label>
+        <ComboBox ItemsSource="{Binding IDSvakogObavestenja}" SelectedItem="{Binding IzabranoObavestenje}" Width="120" Height="30" Margin="115,31,865,839"></ComboBox>
+        <Label Content="Korisnik id"  Height="30" Width="100" Margin="10,66,990,804"></Label>
+        <ComboBox ItemsSource="{Binding IdSvakogKorisnika}" SelectedItem="{Binding IzabraniKorisnik}" Width="120" Height="30" Margin="115,66,865,804"></ComboBox>
+
+        <Label Content="Datum Citanja"  Height="30" Width="100"  Margin="10,100,990,764" ></Label>
+        <DatePicker SelectedDate="{Binding Datum}"  Height="30" Width="120" Margin="115,101,865,769"  />
+        <Label Content="Obrisano" Width="100" Height="30" Margin="10,138,990,732"></Label>
+        <ComboBox ItemsSource="{Binding OpcijeZaObrisano}" SelectedItem="{Binding Obrisano}" Width="120" Height="30" Margin="115,138,865,732"></ComboBox>
+        
+        <Button Command="{Binding Kreiraj}" Content="Kreiraj" Width="50" Height="30" Margin="266,81,784,789"></Button>
+
+        <Label Content="Obavestenje id"  Height="30" Width="100" Margin="751,31,249,839"></Label>
+        <ComboBox ItemsSource="{Binding PrimljenaObavestenjaIDObavestenja}" SelectedItem="{Binding IzabranoObavestenjeIzmena}" Width="120" Height="30" Margin="856,31,124,839"></ComboBox>
+        <Label Content="Korisnik id"  Height="30" Width="100" Margin="751,66,249,804"></Label>
+        <ComboBox ItemsSource="{Binding PrimljenaObavestenjaIDKorisnika}" SelectedItem="{Binding IzabraniKorisnikIzmena}" Width="120" Height="30" Margin="856,68,124,802"></ComboBox>
+
+        <Label Content="Izmeni Datum"  Height="30" Width="100"  Margin="751,103,249,767" ></Label>
+        <DatePicker SelectedDate="{Binding DatumIzmena}"  Height="30" Width="120" Margin="856,103,124,767"  />
+        <Label Content="Izmeni Obrisano" Width="100" Height="30" Margin="751,138,249,732"></Label>
+        <ComboBox ItemsSource="{Binding OpcijeZaObrisano}" SelectedItem="{Binding ObrisanoIzmena}" Width="120" Height="30" Margin="856,138,124,732"></ComboBox>
+
+        <Button Command="{Binding Izmeni}" Content="Izmeni" Width="50" Height="30" Margin="1010,81,40,789"></Button>
+
+
+        <Label Content="Obavestenje id"  Height="30" Width="100" Margin="377,33,623,837"></Label>
+        <ComboBox ItemsSource="{Binding PrimljenaObavestenjaIDObavestenja}" SelectedItem="{Binding IzabranoObavestenjeBrisanje}" Width="120" Height="30" Margin="482,31,498,839"></ComboBox>
+        <Label Content="Korisnik id"  Height="30" Width="100" Margin="377,68,623,802"></Label>
+        <ComboBox ItemsSource="{Binding PrimljenaObavestenjaIDKorisnika}" SelectedItem="{Binding IzabraniKorisnikBrisanje}" Width="120" Height="30" Margin="482,68,498,802"></ComboBox>
+
+        <Button Command="{Binding Izbrisi}" Content="Izbrisi" Width="50" Height="30" Margin="629,43,421,827"></Button>
+
+
+        <DataGrid x:Name="GridSaPitanjima" IsReadOnly="True" ItemsSource="{Binding SvaPrimljenaObavestenja}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="700" Margin="10,190,0,0" VerticalAlignment="Top" Width="973" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+
+            <DataGrid.Columns>
+
+                <!--Obavestenje Kolona-->
+                <DataGridTextColumn Header="Obavestenje ID"  Binding="{Binding ObavestenjeIdObavestenja}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Korisnik kolona-->
+
+                <DataGridTextColumn Header="Korisnik ID"  Binding="{Binding KorisnikIdKorisnika}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Obrisano kolona-->
+
+                <DataGridTextColumn Header="Obrisano"  Binding="{Binding Obrisano}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <!--Datum kolona-->
+
+                <DataGridTextColumn Header="Datum Citanja"  Binding="{Binding DatumCitanja}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</UserControl>

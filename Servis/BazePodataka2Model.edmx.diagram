@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2e67aa06ae04db6b8f7edf6e6bdd1ec" Name="Diagram1" ZoomLevel="82" >
+        <EntityTypeShape EntityType="BazePodataka2Model.Obavestenje" Width="1.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Korisnik" Width="1.5" PointX="10.5" PointY="0.625" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Prima" Width="1.5" PointX="5.125" PointY="0.625" />
+        <AssociationConnector Association="BazePodataka2Model.KorisnikPrima" />
+        <AssociationConnector Association="BazePodataka2Model.ObavestenjePrima" />
+        <AssociationConnector Association="BazePodataka2Model.ObavestenjeKorisnik" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Nastavnik" Width="1.5" PointX="0.625" PointY="4.25" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Ucenik" Width="1.5" PointX="11.25" PointY="4.375" />
+        <InheritanceConnector EntityType="BazePodataka2Model.Nastavnik" />
+        <InheritanceConnector EntityType="BazePodataka2Model.Ucenik" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Kurs" Width="1.5" PointX="0.5" PointY="6.875" />
+        <EntityTypeShape EntityType="BazePodataka2Model.NastavnaTema" Width="1.5" PointX="0.5" PointY="13.75" />
+        <AssociationConnector Association="BazePodataka2Model.NastavnikKurs" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Prijavljen" Width="1.5" PointX="5.375" PointY="4.5" />
+        <AssociationConnector Association="BazePodataka2Model.UcenikPrijavljen" />
+        <AssociationConnector Association="BazePodataka2Model.PrijavljenKurs" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Test" Width="1.5" PointX="5.25" PointY="10.5" />
+        <AssociationConnector Association="BazePodataka2Model.TestKurs" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BazePodataka2Model.Pitanje" Width="1.5" PointX="9.5" PointY="7.75" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Odgovor" Width="1.5" PointX="14.75" PointY="11.25" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Sadrzi" Width="1.5" PointX="0.5" PointY="10.625" />
+        <AssociationConnector Association="BazePodataka2Model.KursSadrzi" />
+        <AssociationConnector Association="BazePodataka2Model.NastavnaTemaSadrzi" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Polaze" Width="1.5" PointX="5.25" PointY="7.25" />
+        <AssociationConnector Association="BazePodataka2Model.TestPolaze" />
+        <AssociationConnector Association="BazePodataka2Model.PrijavljenPolaze" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Sastoji" Width="1.5" PointX="9.25" PointY="11.125" />
+        <AssociationConnector Association="BazePodataka2Model.TestSastoji" />
+        <AssociationConnector Association="BazePodataka2Model.PitanjeSastoji" />
+        <EntityTypeShape EntityType="BazePodataka2Model.Poseduje" Width="1.5" PointX="14.75" PointY="7.75" />
+        <AssociationConnector Association="BazePodataka2Model.PitanjePoseduje" />
+        <AssociationConnector Association="BazePodataka2Model.OdgovorPoseduje" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

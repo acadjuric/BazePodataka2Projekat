@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BazePodataka2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BazePodataka2ModelStoreContainer">
+    <EntitySet Name="Obavestenja" EntityType="BazePodataka2Model.Store.Obavestenja" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Korisnici" EntityType="BazePodataka2Model.Store.Korisnici" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PrimljenaObavestenja" EntityType="BazePodataka2Model.Store.PrimljenaObavestenja" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kursevi" EntityType="BazePodataka2Model.Store.Kursevi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NastavneTeme" EntityType="BazePodataka2Model.Store.NastavneTeme" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prijavljeni" EntityType="BazePodataka2Model.Store.Prijavljeni" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Testovi" EntityType="BazePodataka2Model.Store.Testovi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pitanja" EntityType="BazePodataka2Model.Store.Pitanja" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Odgovori" EntityType="BazePodataka2Model.Store.Odgovori" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sadrzis" EntityType="BazePodataka2Model.Store.Sadrzis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Polazes" EntityType="BazePodataka2Model.Store.Polazes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sastojis" EntityType="BazePodataka2Model.Store.Sastojis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Posedujes" EntityType="BazePodataka2Model.Store.Posedujes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Korisnici_Nastavnik" EntityType="BazePodataka2Model.Store.Korisnici_Nastavnik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Korisnici_Ucenik" EntityType="BazePodataka2Model.Store.Korisnici_Ucenik" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="KorisnikPrima" Association="BazePodataka2Model.Store.KorisnikPrima">
+      <End Role="Korisnik" EntitySet="Korisnici" />
+      <End Role="Prima" EntitySet="PrimljenaObavestenja" />
+    </AssociationSet>
+    <AssociationSet Name="ObavestenjePrima" Association="BazePodataka2Model.Store.ObavestenjePrima">
+      <End Role="Obavestenje" EntitySet="Obavestenja" />
+      <End Role="Prima" EntitySet="PrimljenaObavestenja" />
+    </AssociationSet>
+    <AssociationSet Name="ObavestenjeKorisnik" Association="BazePodataka2Model.Store.ObavestenjeKorisnik">
+      <End Role="Obavestenje" EntitySet="Obavestenja" />
+      <End Role="Korisnik" EntitySet="Korisnici" />
+    </AssociationSet>
+    <AssociationSet Name="NastavnikKurs" Association="BazePodataka2Model.Store.NastavnikKurs">
+      <End Role="Nastavnik" EntitySet="Korisnici_Nastavnik" />
+      <End Role="Kurs" EntitySet="Kursevi" />
+    </AssociationSet>
+    <AssociationSet Name="UcenikPrijavljen" Association="BazePodataka2Model.Store.UcenikPrijavljen">
+      <End Role="Ucenik" EntitySet="Korisnici_Ucenik" />
+      <End Role="Prijavljen" EntitySet="Prijavljeni" />
+    </AssociationSet>
+    <AssociationSet Name="PrijavljenKurs" Association="BazePodataka2Model.Store.PrijavljenKurs">
+      <End Role="Prijavljen" EntitySet="Prijavljeni" />
+      <End Role="Kurs" EntitySet="Kursevi" />
+    </AssociationSet>
+    <AssociationSet Name="TestKurs" Association="BazePodataka2Model.Store.TestKurs">
+      <End Role="Test" EntitySet="Testovi" />
+      <End Role="Kurs" EntitySet="Kursevi" />
+    </AssociationSet>
+    <AssociationSet Name="KursSadrzi" Association="BazePodataka2Model.Store.KursSadrzi">
+      <End Role="Kurs" EntitySet="Kursevi" />
+      <End Role="Sadrzi" EntitySet="Sadrzis" />
+    </AssociationSet>
+    <AssociationSet Name="NastavnaTemaSadrzi" Association="BazePodataka2Model.Store.NastavnaTemaSadrzi">
+      <End Role="NastavnaTema" EntitySet="NastavneTeme" />
+      <End Role="Sadrzi" EntitySet="Sadrzis" />
+    </AssociationSet>
+    <AssociationSet Name="TestPolaze" Association="BazePodataka2Model.Store.TestPolaze">
+      <End Role="Test" EntitySet="Testovi" />
+      <End Role="Polaze" EntitySet="Polazes" />
+    </AssociationSet>
+    <AssociationSet Name="PrijavljenPolaze" Association="BazePodataka2Model.Store.PrijavljenPolaze">
+      <End Role="Prijavljen" EntitySet="Prijavljeni" />
+      <End Role="Polaze" EntitySet="Polazes" />
+    </AssociationSet>
+    <AssociationSet Name="TestSastoji" Association="BazePodataka2Model.Store.TestSastoji">
+      <End Role="Test" EntitySet="Testovi" />
+      <End Role="Sastoji" EntitySet="Sastojis" />
+    </AssociationSet>
+    <AssociationSet Name="PitanjeSastoji" Association="BazePodataka2Model.Store.PitanjeSastoji">
+      <End Role="Pitanje" EntitySet="Pitanja" />
+      <End Role="Sastoji" EntitySet="Sastojis" />
+    </AssociationSet>
+    <AssociationSet Name="PitanjePoseduje" Association="BazePodataka2Model.Store.PitanjePoseduje">
+      <End Role="Pitanje" EntitySet="Pitanja" />
+      <End Role="Poseduje" EntitySet="Posedujes" />
+    </AssociationSet>
+    <AssociationSet Name="OdgovorPoseduje" Association="BazePodataka2Model.Store.OdgovorPoseduje">
+      <End Role="Odgovor" EntitySet="Odgovori" />
+      <End Role="Poseduje" EntitySet="Posedujes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nastavnik_inherits_Korisnik" Association="BazePodataka2Model.Store.FK_Nastavnik_inherits_Korisnik">
+      <End Role="Korisnik" EntitySet="Korisnici" />
+      <End Role="Nastavnik" EntitySet="Korisnici_Nastavnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ucenik_inherits_Korisnik" Association="BazePodataka2Model.Store.FK_Ucenik_inherits_Korisnik">
+      <End Role="Korisnik" EntitySet="Korisnici" />
+      <End Role="Ucenik" EntitySet="Korisnici_Ucenik" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Obavestenja">
+    <Key>
+      <PropertyRef Name="IdObavestenja" />
+    </Key>
+    <Property Name="IdObavestenja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naslov" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tekst" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DatumSlanja" Type="datetime" Nullable="false" />
+    <Property Name="KorisnikIdKorisnika" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="IdKorisnika" />
+    </Key>
+    <Property Name="IdKorisnika" Type="int" Nullable="false" />
+    <Property Name="EmailAdresa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sifra" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrimljenaObavestenja">
+    <Key>
+      <PropertyRef Name="KorisnikIdKorisnika" />
+      <PropertyRef Name="ObavestenjeIdObavestenja" />
+    </Key>
+    <Property Name="ObavestenjeIdObavestenja" Type="int" Nullable="false" />
+    <Property Name="KorisnikIdKorisnika" Type="int" Nullable="false" />
+    <Property Name="DatumCitanja" Type="datetime" Nullable="false" />
+    <Property Name="Obrisano" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kursevi">
+    <Key>
+      <PropertyRef Name="IdKursa" />
+    </Key>
+    <Property Name="IdKursa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Poeni" Type="int" Nullable="false" />
+    <Property Name="NastavnikIdKorisnika" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NastavneTeme">
+    <Key>
+      <PropertyRef Name="IdTeme" />
+    </Key>
+    <Property Name="IdTeme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prijavljeni">
+    <Key>
+      <PropertyRef Name="UcenikIdKorisnika" />
+      <PropertyRef Name="KursIdKursa" />
+    </Key>
+    <Property Name="UcenikIdKorisnika" Type="int" Nullable="false" />
+    <Property Name="KursIdKursa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Testovi">
+    <Key>
+      <PropertyRef Name="IdTesta" />
+    </Key>
+    <Property Name="IdTesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Bodovi" Type="int" Nullable="false" />
+    <Property Name="Datum" Type="datetime" Nullable="false" />
+    <Property Name="KursIdKursa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pitanja">
+    <Key>
+      <PropertyRef Name="IdPitanja" />
+    </Key>
+    <Property Name="IdPitanja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bodovi" Type="int" Nullable="false" />
+    <Property Name="Nivo" Type="int" Nullable="false" />
+    <Property Name="Tekst" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Odgovori">
+    <Key>
+      <PropertyRef Name="IdOdgovora" />
+    </Key>
+    <Property Name="IdOdgovora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tekst" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tacan" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sadrzis">
+    <Key>
+      <PropertyRef Name="KursIdKursa" />
+      <PropertyRef Name="NastavnaTemaIdTeme" />
+    </Key>
+    <Property Name="KursIdKursa" Type="int" Nullable="false" />
+    <Property Name="NastavnaTemaIdTeme" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Polazes">
+    <Key>
+      <PropertyRef Name="TestIdTesta" />
+      <PropertyRef Name="PrijavljenUcenikIdKorisnika" />
+      <PropertyRef Name="PrijavljenKursIdKursa" />
+    </Key>
+    <Property Name="TestIdTesta" Type="int" Nullable="false" />
+    <Property Name="PrijavljenUcenikIdKorisnika" Type="int" Nullable="false" />
+    <Property Name="PrijavljenKursIdKursa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sastojis">
+    <Key>
+      <PropertyRef Name="TestIdTesta" />
+      <PropertyRef Name="PitanjeIdPitanja" />
+    </Key>
+    <Property Name="TestIdTesta" Type="int" Nullable="false" />
+    <Property Name="PitanjeIdPitanja" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posedujes">
+    <Key>
+      <PropertyRef Name="PitanjeIdPitanja" />
+      <PropertyRef Name="OdgovorIdOdgovora" />
+    </Key>
+    <Property Name="PitanjeIdPitanja" Type="int" Nullable="false" />
+    <Property Name="OdgovorIdOdgovora" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Korisnici_Nastavnik">
+    <Key>
+      <PropertyRef Name="IdKorisnika" />
+    </Key>
+    <Property Name="Zvanje" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdKorisnika" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Korisnici_Ucenik">
+    <Key>
+      <PropertyRef Name="IdKorisnika" />
+    </Key>
+    <Property Name="Razred" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IdKorisnika" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="KorisnikPrima">
+    <End Role="Korisnik" Type="BazePodataka2Model.Store.Korisnici" Multiplicity="1" />
+    <End Role="Prima" Type="BazePodataka2Model.Store.PrimljenaObavestenja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="IdKorisnika" />
+      </Principal>
+      <Dependent Role="Prima">
+        <PropertyRef Name="KorisnikIdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObavestenjePrima">
+    <End Role="Obavestenje" Type="BazePodataka2Model.Store.Obavestenja" Multiplicity="1" />
+    <End Role="Prima" Type="BazePodataka2Model.Store.PrimljenaObavestenja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obavestenje">
+        <PropertyRef Name="IdObavestenja" />
+      </Principal>
+      <Dependent Role="Prima">
+        <PropertyRef Name="ObavestenjeIdObavestenja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObavestenjeKorisnik">
+    <End Role="Obavestenje" Type="BazePodataka2Model.Store.Obavestenja" Multiplicity="*" />
+    <End Role="Korisnik" Type="BazePodataka2Model.Store.Korisnici" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="IdKorisnika" />
+      </Principal>
+      <Dependent Role="Obavestenje">
+        <PropertyRef Name="KorisnikIdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NastavnikKurs">
+    <End Role="Nastavnik" Type="BazePodataka2Model.Store.Korisnici_Nastavnik" Multiplicity="1" />
+    <End Role="Kurs" Type="BazePodataka2Model.Store.Kursevi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nastavnik">
+        <PropertyRef Name="IdKorisnika" />
+      </Principal>
+      <Dependent Role="Kurs">
+        <PropertyRef Name="NastavnikIdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UcenikPrijavljen">
+    <End Role="Ucenik" Type="BazePodataka2Model.Store.Korisnici_Ucenik" Multiplicity="1" />
+    <End Role="Prijavljen" Type="BazePodataka2Model.Store.Prijavljeni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ucenik">
+        <PropertyRef Name="IdKorisnika" />
+      </Principal>
+      <Dependent Role="Prijavljen">
+        <PropertyRef Name="UcenikIdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrijavljenKurs">
+    <End Role="Prijavljen" Type="BazePodataka2Model.Store.Prijavljeni" Multiplicity="*" />
+    <End Role="Kurs" Type="BazePodataka2Model.Store.Kursevi" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Kurs">
+        <PropertyRef Name="IdKursa" />
+      </Principal>
+      <Dependent Role="Prijavljen">
+        <PropertyRef Name="KursIdKursa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestKurs">
+    <End Role="Test" Type="BazePodataka2Model.Store.Testovi" Multiplicity="*" />
+    <End Role="Kurs" Type="BazePodataka2Model.Store.Kursevi" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Kurs">
+        <PropertyRef Name="IdKursa" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="KursIdKursa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KursSadrzi">
+    <End Role="Kurs" Type="BazePodataka2Model.Store.Kursevi" Multiplicity="1" />
+    <End Role="Sadrzi" Type="BazePodataka2Model.Store.Sadrzis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kurs">
+        <PropertyRef Name="IdKursa" />
+      </Principal>
+      <Dependent Role="Sadrzi">
+        <PropertyRef Name="KursIdKursa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NastavnaTemaSadrzi">
+    <End Role="NastavnaTema" Type="BazePodataka2Model.Store.NastavneTeme" Multiplicity="1" />
+    <End Role="Sadrzi" Type="BazePodataka2Model.Store.Sadrzis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NastavnaTema">
+        <PropertyRef Name="IdTeme" />
+      </Principal>
+      <Dependent Role="Sadrzi">
+        <PropertyRef Name="NastavnaTemaIdTeme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestPolaze">
+    <End Role="Test" Type="BazePodataka2Model.Store.Testovi" Multiplicity="1" />
+    <End Role="Polaze" Type="BazePodataka2Model.Store.Polazes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="IdTesta" />
+      </Principal>
+      <Dependent Role="Polaze">
+        <PropertyRef Name="TestIdTesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrijavljenPolaze">
+    <End Role="Prijavljen" Type="BazePodataka2Model.Store.Prijavljeni" Multiplicity="1" />
+    <End Role="Polaze" Type="BazePodataka2Model.Store.Polazes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prijavljen">
+        <PropertyRef Name="UcenikIdKorisnika" />
+        <PropertyRef Name="KursIdKursa" />
+      </Principal>
+      <Dependent Role="Polaze">
+        <PropertyRef Name="PrijavljenUcenikIdKorisnika" />
+        <PropertyRef Name="PrijavljenKursIdKursa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestSastoji">
+    <End Role="Test" Type="BazePodataka2Model.Store.Testovi" Multiplicity="1" />
+    <End Role="Sastoji" Type="BazePodataka2Model.Store.Sastojis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="IdTesta" />
+      </Principal>
+      <Dependent Role="Sastoji">
+        <PropertyRef Name="TestIdTesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PitanjeSastoji">
+    <End Role="Pitanje" Type="BazePodataka2Model.Store.Pitanja" Multiplicity="1" />
+    <End Role="Sastoji" Type="BazePodataka2Model.Store.Sastojis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pitanje">
+        <PropertyRef Name="IdPitanja" />
+      </Principal>
+      <Dependent Role="Sastoji">
+        <PropertyRef Name="PitanjeIdPitanja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PitanjePoseduje">
+    <End Role="Pitanje" Type="BazePodataka2Model.Store.Pitanja" Multiplicity="1" />
+    <End Role="Poseduje" Type="BazePodataka2Model.Store.Posedujes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pitanje">
+        <PropertyRef Name="IdPitanja" />
+      </Principal>
+      <Dependent Role="Poseduje">
+        <PropertyRef Name="PitanjeIdPitanja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OdgovorPoseduje">
+    <End Role="Odgovor" Type="BazePodataka2Model.Store.Odgovori" Multiplicity="1" />
+    <End Role="Poseduje" Type="BazePodataka2Model.Store.Posedujes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Odgovor">
+        <PropertyRef Name="IdOdgovora" />
+      </Principal>
+      <Dependent Role="Poseduje">
+        <PropertyRef Name="OdgovorIdOdgovora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nastavnik_inherits_Korisnik">
+    <End Role="Korisnik" Type="BazePodataka2Model.Store.Korisnici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nastavnik" Type="BazePodataka2Model.Store.Korisnici_Nastavnik" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="IdKorisnika" />
+      </Principal>
+      <Dependent Role="Nastavnik">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ucenik_inherits_Korisnik">
+    <End Role="Korisnik" Type="BazePodataka2Model.Store.Korisnici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ucenik" Type="BazePodataka2Model.Store.Korisnici_Ucenik" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="IdKorisnika" />
+      </Principal>
+      <Dependent Role="Ucenik">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BazePodataka2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BazePodataka2ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Obavestenja" EntityType="BazePodataka2Model.Obavestenje" />
+          <EntitySet Name="Korisnici" EntityType="BazePodataka2Model.Korisnik" />
+          <EntitySet Name="PrimljenaObavestenja" EntityType="BazePodataka2Model.Prima" />
+          <AssociationSet Name="KorisnikPrima" Association="BazePodataka2Model.KorisnikPrima">
+            <End Role="Korisnik" EntitySet="Korisnici" />
+            <End Role="Prima" EntitySet="PrimljenaObavestenja" />
+          </AssociationSet>
+          <AssociationSet Name="ObavestenjePrima" Association="BazePodataka2Model.ObavestenjePrima">
+            <End Role="Obavestenje" EntitySet="Obavestenja" />
+            <End Role="Prima" EntitySet="PrimljenaObavestenja" />
+          </AssociationSet>
+          <AssociationSet Name="ObavestenjeKorisnik" Association="BazePodataka2Model.ObavestenjeKorisnik">
+            <End Role="Obavestenje" EntitySet="Obavestenja" />
+            <End Role="Korisnik" EntitySet="Korisnici" />
+          </AssociationSet>
+          <EntitySet Name="Kursevi" EntityType="BazePodataka2Model.Kurs" />
+          <EntitySet Name="NastavneTeme" EntityType="BazePodataka2Model.NastavnaTema" />
+          <AssociationSet Name="NastavnikKurs" Association="BazePodataka2Model.NastavnikKurs">
+            <End Role="Nastavnik" EntitySet="Korisnici" />
+            <End Role="Kurs" EntitySet="Kursevi" />
+          </AssociationSet>
+          <EntitySet Name="Prijavljeni" EntityType="BazePodataka2Model.Prijavljen" />
+          <AssociationSet Name="UcenikPrijavljen" Association="BazePodataka2Model.UcenikPrijavljen">
+            <End Role="Ucenik" EntitySet="Korisnici" />
+            <End Role="Prijavljen" EntitySet="Prijavljeni" />
+          </AssociationSet>
+          <AssociationSet Name="PrijavljenKurs" Association="BazePodataka2Model.PrijavljenKurs">
+            <End Role="Prijavljen" EntitySet="Prijavljeni" />
+            <End Role="Kurs" EntitySet="Kursevi" />
+          </AssociationSet>
+          <EntitySet Name="Testovi" EntityType="BazePodataka2Model.Test" />
+          <AssociationSet Name="TestKurs" Association="BazePodataka2Model.TestKurs">
+            <End Role="Test" EntitySet="Testovi" />
+            <End Role="Kurs" EntitySet="Kursevi" />
+          </AssociationSet>
+          <EntitySet Name="Pitanja" EntityType="BazePodataka2Model.Pitanje" />
+          <EntitySet Name="Odgovori" EntityType="BazePodataka2Model.Odgovor" />
+          <EntitySet Name="Sadrzis" EntityType="BazePodataka2Model.Sadrzi" />
+          <AssociationSet Name="KursSadrzi" Association="BazePodataka2Model.KursSadrzi">
+            <End Role="Kurs" EntitySet="Kursevi" />
+            <End Role="Sadrzi" EntitySet="Sadrzis" />
+          </AssociationSet>
+          <AssociationSet Name="NastavnaTemaSadrzi" Association="BazePodataka2Model.NastavnaTemaSadrzi">
+            <End Role="NastavnaTema" EntitySet="NastavneTeme" />
+            <End Role="Sadrzi" EntitySet="Sadrzis" />
+          </AssociationSet>
+          <EntitySet Name="Polazes" EntityType="BazePodataka2Model.Polaze" />
+          <AssociationSet Name="TestPolaze" Association="BazePodataka2Model.TestPolaze">
+            <End Role="Test" EntitySet="Testovi" />
+            <End Role="Polaze" EntitySet="Polazes" />
+          </AssociationSet>
+          <AssociationSet Name="PrijavljenPolaze" Association="BazePodataka2Model.PrijavljenPolaze">
+            <End Role="Prijavljen" EntitySet="Prijavljeni" />
+            <End Role="Polaze" EntitySet="Polazes" />
+          </AssociationSet>
+          <EntitySet Name="Sastojis" EntityType="BazePodataka2Model.Sastoji" />
+          <AssociationSet Name="TestSastoji" Association="BazePodataka2Model.TestSastoji">
+            <End Role="Test" EntitySet="Testovi" />
+            <End Role="Sastoji" EntitySet="Sastojis" />
+          </AssociationSet>
+          <AssociationSet Name="PitanjeSastoji" Association="BazePodataka2Model.PitanjeSastoji">
+            <End Role="Pitanje" EntitySet="Pitanja" />
+            <End Role="Sastoji" EntitySet="Sastojis" />
+          </AssociationSet>
+          <EntitySet Name="Posedujes" EntityType="BazePodataka2Model.Poseduje" />
+          <AssociationSet Name="PitanjePoseduje" Association="BazePodataka2Model.PitanjePoseduje">
+            <End Role="Pitanje" EntitySet="Pitanja" />
+            <End Role="Poseduje" EntitySet="Posedujes" />
+          </AssociationSet>
+          <AssociationSet Name="OdgovorPoseduje" Association="BazePodataka2Model.OdgovorPoseduje">
+            <End Role="Odgovor" EntitySet="Odgovori" />
+            <End Role="Poseduje" EntitySet="Posedujes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Obavestenje">
+          <Key>
+            <PropertyRef Name="IdObavestenja" />
+          </Key>
+          <Property Name="IdObavestenja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naslov" Type="String" Nullable="false" />
+          <Property Name="Tekst" Type="String" Nullable="false" />
+          <Property Name="DatumSlanja" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Primas" Relationship="BazePodataka2Model.ObavestenjePrima" FromRole="Obavestenje" ToRole="Prima" />
+          <NavigationProperty Name="Korisnik" Relationship="BazePodataka2Model.ObavestenjeKorisnik" FromRole="Obavestenje" ToRole="Korisnik" />
+          <Property Name="KorisnikIdKorisnika" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="IdKorisnika" />
+          </Key>
+          <Property Name="IdKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="EmailAdresa" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <Property Name="Sifra" Type="String" Nullable="false" />
+          <NavigationProperty Name="PrimljenaObavestenja" Relationship="BazePodataka2Model.KorisnikPrima" FromRole="Korisnik" ToRole="Prima" />
+          <NavigationProperty Name="Obavestenjes" Relationship="BazePodataka2Model.ObavestenjeKorisnik" FromRole="Korisnik" ToRole="Obavestenje" />
+        </EntityType>
+        <EntityType Name="Prima">
+          <Key>
+            <PropertyRef Name="KorisnikIdKorisnika" />
+            <PropertyRef Name="ObavestenjeIdObavestenja" />
+          </Key>
+          <Property Name="ObavestenjeIdObavestenja" Type="Int32" Nullable="false" />
+          <Property Name="KorisnikIdKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="DatumCitanja" Type="DateTime" Nullable="false" />
+          <Property Name="Obrisano" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Korisnik" Relationship="BazePodataka2Model.KorisnikPrima" FromRole="Prima" ToRole="Korisnik" />
+          <NavigationProperty Name="Obavestenje" Relationship="BazePodataka2Model.ObavestenjePrima" FromRole="Prima" ToRole="Obavestenje" />
+        </EntityType>
+        <Association Name="KorisnikPrima">
+          <End Type="BazePodataka2Model.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Prima" Role="Prima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="IdKorisnika" />
+            </Principal>
+            <Dependent Role="Prima">
+              <PropertyRef Name="KorisnikIdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ObavestenjePrima">
+          <End Type="BazePodataka2Model.Obavestenje" Role="Obavestenje" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Prima" Role="Prima" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obavestenje">
+              <PropertyRef Name="IdObavestenja" />
+            </Principal>
+            <Dependent Role="Prima">
+              <PropertyRef Name="ObavestenjeIdObavestenja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ObavestenjeKorisnik">
+          <End Type="BazePodataka2Model.Obavestenje" Role="Obavestenje" Multiplicity="*" />
+          <End Type="BazePodataka2Model.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="IdKorisnika" />
+            </Principal>
+            <Dependent Role="Obavestenje">
+              <PropertyRef Name="KorisnikIdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Nastavnik" BaseType="BazePodataka2Model.Korisnik">
+          <Property Name="Zvanje" Type="String" Nullable="false" />
+          <NavigationProperty Name="NastavnikKursevi" Relationship="BazePodataka2Model.NastavnikKurs" FromRole="Nastavnik" ToRole="Kurs" />
+        </EntityType>
+        <EntityType Name="Ucenik" BaseType="BazePodataka2Model.Korisnik">
+          <Property Name="Razred" Type="String" Nullable="false" />
+          <NavigationProperty Name="UcenikPrijavljeni" Relationship="BazePodataka2Model.UcenikPrijavljen" FromRole="Ucenik" ToRole="Prijavljen" />
+        </EntityType>
+        <EntityType Name="Kurs">
+          <Key>
+            <PropertyRef Name="IdKursa" />
+          </Key>
+          <Property Name="IdKursa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Poeni" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nastavnik" Relationship="BazePodataka2Model.NastavnikKurs" FromRole="Kurs" ToRole="Nastavnik" />
+          <Property Name="NastavnikIdKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KursPrijavljeni" Relationship="BazePodataka2Model.PrijavljenKurs" FromRole="Kurs" ToRole="Prijavljen" />
+          <NavigationProperty Name="KursTestovi" Relationship="BazePodataka2Model.TestKurs" FromRole="Kurs" ToRole="Test" />
+          <NavigationProperty Name="Sadrzis" Relationship="BazePodataka2Model.KursSadrzi" FromRole="Kurs" ToRole="Sadrzi" />
+        </EntityType>
+        <EntityType Name="NastavnaTema">
+          <Key>
+            <PropertyRef Name="IdTeme" />
+          </Key>
+          <Property Name="IdTeme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sadrzis" Relationship="BazePodataka2Model.NastavnaTemaSadrzi" FromRole="NastavnaTema" ToRole="Sadrzi" />
+        </EntityType>
+        <Association Name="NastavnikKurs">
+          <End Type="BazePodataka2Model.Nastavnik" Role="Nastavnik" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Kurs" Role="Kurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nastavnik">
+              <PropertyRef Name="IdKorisnika" />
+            </Principal>
+            <Dependent Role="Kurs">
+              <PropertyRef Name="NastavnikIdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Prijavljen">
+          <Key>
+            <PropertyRef Name="UcenikIdKorisnika" />
+            <PropertyRef Name="KursIdKursa" />
+          </Key>
+          <NavigationProperty Name="PrijavljenUcenik" Relationship="BazePodataka2Model.UcenikPrijavljen" FromRole="Prijavljen" ToRole="Ucenik" />
+          <Property Name="UcenikIdKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PrijavljenKurs" Relationship="BazePodataka2Model.PrijavljenKurs" FromRole="Prijavljen" ToRole="Kurs" />
+          <Property Name="KursIdKursa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Polazes" Relationship="BazePodataka2Model.PrijavljenPolaze" FromRole="Prijavljen" ToRole="Polaze" />
+        </EntityType>
+        <Association Name="UcenikPrijavljen">
+          <End Type="BazePodataka2Model.Ucenik" Role="Ucenik" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Prijavljen" Role="Prijavljen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucenik">
+              <PropertyRef Name="IdKorisnika" />
+            </Principal>
+            <Dependent Role="Prijavljen">
+              <PropertyRef Name="UcenikIdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrijavljenKurs">
+          <End Type="BazePodataka2Model.Prijavljen" Role="Prijavljen" Multiplicity="*" />
+          <End Type="BazePodataka2Model.Kurs" Role="Kurs" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="IdKursa" />
+            </Principal>
+            <Dependent Role="Prijavljen">
+              <PropertyRef Name="KursIdKursa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="IdTesta" />
+          </Key>
+          <Property Name="IdTesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Bodovi" Type="Int32" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="TestKurs" Relationship="BazePodataka2Model.TestKurs" FromRole="Test" ToRole="Kurs" />
+          <Property Name="KursIdKursa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Polazes" Relationship="BazePodataka2Model.TestPolaze" FromRole="Test" ToRole="Polaze" />
+          <NavigationProperty Name="Sastojis" Relationship="BazePodataka2Model.TestSastoji" FromRole="Test" ToRole="Sastoji" />
+        </EntityType>
+        <Association Name="TestKurs">
+          <End Type="BazePodataka2Model.Test" Role="Test" Multiplicity="*" />
+          <End Type="BazePodataka2Model.Kurs" Role="Kurs" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="IdKursa" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="KursIdKursa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pitanje">
+          <Key>
+            <PropertyRef Name="IdPitanja" />
+          </Key>
+          <Property Name="IdPitanja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bodovi" Type="Int32" Nullable="false" />
+          <Property Name="Nivo" Type="Int32" Nullable="false" />
+          <Property Name="Tekst" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sastojis" Relationship="BazePodataka2Model.PitanjeSastoji" FromRole="Pitanje" ToRole="Sastoji" />
+          <NavigationProperty Name="Posedujes" Relationship="BazePodataka2Model.PitanjePoseduje" FromRole="Pitanje" ToRole="Poseduje" />
+        </EntityType>
+        <EntityType Name="Odgovor">
+          <Key>
+            <PropertyRef Name="IdOdgovora" />
+          </Key>
+          <Property Name="IdOdgovora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tekst" Type="String" Nullable="false" />
+          <Property Name="Tacan" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Posedujes" Relationship="BazePodataka2Model.OdgovorPoseduje" FromRole="Odgovor" ToRole="Poseduje" />
+        </EntityType>
+        <EntityType Name="Sadrzi" >
+          <Key>
+            <PropertyRef Name="KursIdKursa" />
+            <PropertyRef Name="NastavnaTemaIdTeme" />
+          </Key>
+          <NavigationProperty Name="Kurs" Relationship="BazePodataka2Model.KursSadrzi" FromRole="Sadrzi" ToRole="Kurs" />
+          <Property Name="KursIdKursa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NastavnaTema" Relationship="BazePodataka2Model.NastavnaTemaSadrzi" FromRole="Sadrzi" ToRole="NastavnaTema" />
+          <Property Name="NastavnaTemaIdTeme" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="KursSadrzi">
+          <End Type="BazePodataka2Model.Kurs" Role="Kurs" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Sadrzi" Role="Sadrzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="IdKursa" />
+            </Principal>
+            <Dependent Role="Sadrzi">
+              <PropertyRef Name="KursIdKursa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NastavnaTemaSadrzi">
+          <End Type="BazePodataka2Model.NastavnaTema" Role="NastavnaTema" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Sadrzi" Role="Sadrzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NastavnaTema">
+              <PropertyRef Name="IdTeme" />
+            </Principal>
+            <Dependent Role="Sadrzi">
+              <PropertyRef Name="NastavnaTemaIdTeme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Polaze" >
+          <Key>
+            <PropertyRef Name="TestIdTesta" />
+            <PropertyRef Name="PrijavljenUcenikIdKorisnika" />
+            <PropertyRef Name="PrijavljenKursIdKursa" />
+          </Key>
+          <NavigationProperty Name="Test" Relationship="BazePodataka2Model.TestPolaze" FromRole="Polaze" ToRole="Test" />
+          <Property Name="TestIdTesta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prijavljen" Relationship="BazePodataka2Model.PrijavljenPolaze" FromRole="Polaze" ToRole="Prijavljen" />
+          <Property Name="PrijavljenUcenikIdKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="PrijavljenKursIdKursa" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="TestPolaze">
+          <End Type="BazePodataka2Model.Test" Role="Test" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Polaze" Role="Polaze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="IdTesta" />
+            </Principal>
+            <Dependent Role="Polaze">
+              <PropertyRef Name="TestIdTesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrijavljenPolaze">
+          <End Type="BazePodataka2Model.Prijavljen" Role="Prijavljen" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Polaze" Role="Polaze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prijavljen">
+              <PropertyRef Name="UcenikIdKorisnika" />
+              <PropertyRef Name="KursIdKursa" />
+            </Principal>
+            <Dependent Role="Polaze">
+              <PropertyRef Name="PrijavljenUcenikIdKorisnika" />
+              <PropertyRef Name="PrijavljenKursIdKursa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sastoji" >
+          <Key>
+            <PropertyRef Name="TestIdTesta" />
+            <PropertyRef Name="PitanjeIdPitanja" />
+          </Key>
+          <NavigationProperty Name="Test" Relationship="BazePodataka2Model.TestSastoji" FromRole="Sastoji" ToRole="Test" />
+          <Property Name="TestIdTesta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pitanje" Relationship="BazePodataka2Model.PitanjeSastoji" FromRole="Sastoji" ToRole="Pitanje" />
+          <Property Name="PitanjeIdPitanja" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="TestSastoji">
+          <End Type="BazePodataka2Model.Test" Role="Test" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Sastoji" Role="Sastoji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Test">
+              <PropertyRef Name="IdTesta" />
+            </Principal>
+            <Dependent Role="Sastoji">
+              <PropertyRef Name="TestIdTesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PitanjeSastoji">
+          <End Type="BazePodataka2Model.Pitanje" Role="Pitanje" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Sastoji" Role="Sastoji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pitanje">
+              <PropertyRef Name="IdPitanja" />
+            </Principal>
+            <Dependent Role="Sastoji">
+              <PropertyRef Name="PitanjeIdPitanja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Poseduje" >
+          <Key>
+            <PropertyRef Name="PitanjeIdPitanja" />
+            <PropertyRef Name="OdgovorIdOdgovora" />
+          </Key>
+          <NavigationProperty Name="Pitanje" Relationship="BazePodataka2Model.PitanjePoseduje" FromRole="Poseduje" ToRole="Pitanje" />
+          <Property Name="PitanjeIdPitanja" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Odgovor" Relationship="BazePodataka2Model.OdgovorPoseduje" FromRole="Poseduje" ToRole="Odgovor" />
+          <Property Name="OdgovorIdOdgovora" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PitanjePoseduje">
+          <End Type="BazePodataka2Model.Pitanje" Role="Pitanje" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Poseduje" Role="Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pitanje">
+              <PropertyRef Name="IdPitanja" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="PitanjeIdPitanja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OdgovorPoseduje">
+          <End Type="BazePodataka2Model.Odgovor" Role="Odgovor" Multiplicity="1" />
+          <End Type="BazePodataka2Model.Poseduje" Role="Poseduje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Odgovor">
+              <PropertyRef Name="IdOdgovora" />
+            </Principal>
+            <Dependent Role="Poseduje">
+              <PropertyRef Name="OdgovorIdOdgovora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BazePodataka2ModelStoreContainer" CdmEntityContainer="BazePodataka2ModelContainer">
+    <EntitySetMapping Name="Obavestenja">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Obavestenje)">
+        <MappingFragment StoreEntitySet="Obavestenja">
+          <ScalarProperty Name="IdObavestenja" ColumnName="IdObavestenja" />
+          <ScalarProperty Name="Naslov" ColumnName="Naslov" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+          <ScalarProperty Name="DatumSlanja" ColumnName="DatumSlanja" />
+          <ScalarProperty Name="KorisnikIdKorisnika" ColumnName="KorisnikIdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisnici">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Korisnik)">
+        <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="EmailAdresa" ColumnName="EmailAdresa" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Nastavnik)">
+        <MappingFragment StoreEntitySet="Korisnici_Nastavnik">
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="Zvanje" ColumnName="Zvanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Ucenik)">
+        <MappingFragment StoreEntitySet="Korisnici_Ucenik">
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="Razred" ColumnName="Razred" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimljenaObavestenja">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Prima)">
+        <MappingFragment StoreEntitySet="PrimljenaObavestenja">
+          <ScalarProperty Name="KorisnikIdKorisnika" ColumnName="KorisnikIdKorisnika" />
+          <ScalarProperty Name="ObavestenjeIdObavestenja" ColumnName="ObavestenjeIdObavestenja" />
+          <ScalarProperty Name="DatumCitanja" ColumnName="DatumCitanja" />
+          <ScalarProperty Name="Obrisano" ColumnName="Obrisano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kursevi">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Kurs)">
+        <MappingFragment StoreEntitySet="Kursevi">
+          <ScalarProperty Name="IdKursa" ColumnName="IdKursa" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Poeni" ColumnName="Poeni" />
+          <ScalarProperty Name="NastavnikIdKorisnika" ColumnName="NastavnikIdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NastavneTeme">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.NastavnaTema)">
+        <MappingFragment StoreEntitySet="NastavneTeme">
+          <ScalarProperty Name="IdTeme" ColumnName="IdTeme" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prijavljeni">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Prijavljen)">
+        <MappingFragment StoreEntitySet="Prijavljeni">
+          <ScalarProperty Name="UcenikIdKorisnika" ColumnName="UcenikIdKorisnika" />
+          <ScalarProperty Name="KursIdKursa" ColumnName="KursIdKursa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testovi">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Test)">
+        <MappingFragment StoreEntitySet="Testovi">
+          <ScalarProperty Name="IdTesta" ColumnName="IdTesta" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Bodovi" ColumnName="Bodovi" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="KursIdKursa" ColumnName="KursIdKursa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pitanja">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Pitanje)">
+        <MappingFragment StoreEntitySet="Pitanja">
+          <ScalarProperty Name="IdPitanja" ColumnName="IdPitanja" />
+          <ScalarProperty Name="Bodovi" ColumnName="Bodovi" />
+          <ScalarProperty Name="Nivo" ColumnName="Nivo" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Odgovori">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Odgovor)">
+        <MappingFragment StoreEntitySet="Odgovori">
+          <ScalarProperty Name="IdOdgovora" ColumnName="IdOdgovora" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+          <ScalarProperty Name="Tacan" ColumnName="Tacan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sadrzis">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Sadrzi)">
+        <MappingFragment StoreEntitySet="Sadrzis">
+          <ScalarProperty Name="KursIdKursa" ColumnName="KursIdKursa" />
+          <ScalarProperty Name="NastavnaTemaIdTeme" ColumnName="NastavnaTemaIdTeme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polazes">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Polaze)">
+        <MappingFragment StoreEntitySet="Polazes">
+          <ScalarProperty Name="TestIdTesta" ColumnName="TestIdTesta" />
+          <ScalarProperty Name="PrijavljenUcenikIdKorisnika" ColumnName="PrijavljenUcenikIdKorisnika" />
+          <ScalarProperty Name="PrijavljenKursIdKursa" ColumnName="PrijavljenKursIdKursa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sastojis">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Sastoji)">
+        <MappingFragment StoreEntitySet="Sastojis">
+          <ScalarProperty Name="TestIdTesta" ColumnName="TestIdTesta" />
+          <ScalarProperty Name="PitanjeIdPitanja" ColumnName="PitanjeIdPitanja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posedujes">
+      <EntityTypeMapping TypeName="IsTypeOf(BazePodataka2Model.Poseduje)">
+        <MappingFragment StoreEntitySet="Posedujes">
+          <ScalarProperty Name="PitanjeIdPitanja" ColumnName="PitanjeIdPitanja" />
+          <ScalarProperty Name="OdgovorIdOdgovora" ColumnName="OdgovorIdOdgovora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

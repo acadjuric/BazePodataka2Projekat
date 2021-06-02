@@ -1,0 +1,103 @@
+﻿<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        xmlns:viewModel="clr-namespace:UI.ViewModel"
+        xmlns:views="clr-namespace:UI.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="950" Width="1310" WindowStartupLocation="CenterScreen">
+    <!--<Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>-->
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:ObavestenjaViewModel}">
+            <views:ObavestenjaView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:KursViewModel}">
+            <views:KursView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:NastavnaTemaViewModel}">
+            <views:NastavnaTemaView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PitanjeViewModel}">
+            <views:PitanjeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:TestViewModel}">
+            <views:TestView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:OdgovorViewModel}">
+            <views:OdgovorView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:NastavnikViewModel}">
+            <views:NastavnikView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:UcenikViewModel}">
+            <views:UcenikView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PrimaViewModel}">
+            <views:PrimaView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PrijavljenViewModel}">
+            <views:PrijavljenView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:KursNastavnaTemaViewModel}" >
+            <views:KursNastavnaTemaView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PitanjeOdgovorViewModel}">
+            <views:PitanjeOdgovorView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:TestPitanjeViewModel}">
+            <views:TestPitanjeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PrijavljenTestViewModel}">
+            <views:PrijavljenTestView/>
+        </DataTemplate>
+
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Margin="5">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Obavestenja" Command="{Binding NavCommand}" CommandParameter="obavestenje" />
+                <MenuItem Header="Ucenik" Command="{Binding NavCommand}" CommandParameter="ucenik" />
+                <MenuItem Header="Nastavnik" Command="{Binding NavCommand}" CommandParameter="nastavnik" />
+                <MenuItem Header="Kurs" Command="{Binding NavCommand}" CommandParameter="kurs" />
+                <MenuItem Header="Nastavna Tema" Command="{Binding NavCommand}" CommandParameter="nastavnaTema" />
+                <MenuItem Header="Test" Command="{Binding NavCommand}" CommandParameter="test" />
+                <MenuItem Header="Pitanje" Command="{Binding NavCommand}" CommandParameter="pitanje" />
+                <MenuItem Header="Odgovor" Command="{Binding NavCommand}" CommandParameter="odgovor" />
+                <MenuItem Header="Primljena Obavestenja" Command="{Binding NavCommand}" CommandParameter="prima" />
+                <MenuItem Header="Prijavljeni" Command="{Binding NavCommand}" CommandParameter="prijavljen" />
+                <MenuItem Header="Kursevi i Nastavne teme" Command="{Binding NavCommand}" CommandParameter="kursNastavnaTema" />
+                <MenuItem Header="Pitanja i Odgovori" Command="{Binding NavCommand}" CommandParameter="pitanjaOdgovori" />
+                <MenuItem Header="Testovi i Pitanja" Command="{Binding NavCommand}" CommandParameter="testoviPitanja" />
+                <MenuItem Header="Prijavljeni i Testovi" Command="{Binding NavCommand}" CommandParameter="prijavljeniTest" />
+                <MenuItem Header="Procedure" Command="{Binding NavCommand}" CommandParameter="procedure" />
+                <MenuItem Header="Funkcije" Command="{Binding NavCommand}" CommandParameter="funckije" />
+            </Menu>
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Grid>
+    </Grid>
+</Window>
