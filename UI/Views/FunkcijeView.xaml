@@ -7,19 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1100" Background="White">
     <Grid>
+        <Label Content="Id kursa" Width="100" Height="30" Margin="166,84,834,786"/>
+        <ComboBox ItemsSource="{Binding SviKursevi}" SelectedItem="{Binding IzabraniKurs1}" Width="100" Height="30" Margin="271,84,729,786"></ComboBox>
+        <Button Command="{Binding TestoviZaKurs}" Content="Broj Testova" Width="100" Height="30" Margin="392,84,608,786" ></Button>
+        <TextBox Text="{Binding Rezultat1}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="511,84,489,786" />
 
-        <ComboBox ItemsSource="{Binding SviKursevi}" SelectedItem="{Binding IzabraniKurs1}" Width="100" Height="30" Margin="30,26,970,844"></ComboBox>
-        <Button Command="{Binding TestoviZaKurs}" Content="Testovi za kurs" Width="100" Height="30" Margin="30,95,970,775" ></Button>
-        <TextBox Text="{Binding Rezultat1}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="30,166,970,704" />
+        <Label Content="Id korisnika" Height="30" Width="100" Margin="173,219,827,651"/>
+        <ComboBox ItemsSource="{Binding IdSvihKorisnika}"  SelectedItem="{Binding IzabraniKorisnik}" Width="100" Height="30" Margin="278,219,722,651"></ComboBox>
+        <Button Command="{Binding ObavestenjaZaOdKorisnika}" Content="Sva obavestenja" Width="120" Height="30" Margin="407,219,573,651"></Button>
+        <TextBox Text="{Binding Rezultat2}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="557,219,443,651" />
 
-        <ComboBox ItemsSource="{Binding IdSvihKorisnika}"  SelectedItem="{Binding IzabraniKorisnik}" Width="100" Height="30" Margin="212,26,788,844"></ComboBox>
-        <Button Command="{Binding ObavestenjaZaOdKorisnika}" Content="Sva obavestenja" Width="120" Height="30" Margin="192,95,788,775"></Button>
-        <TextBox Text="{Binding Rezultat2}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="192,166,808,704" />
-
-        <ComboBox ItemsSource="{Binding IDSvakogKursa}"  SelectedItem="{Binding IzabraniKurs2}" Width="100" Height="30" Margin="517,26,483,844"></ComboBox>
-        <ComboBox ItemsSource="{Binding IDSvakogTesta}"  SelectedItem="{Binding IzabraniTest2}" Width="100" Height="30" Margin="384,26,616,844"></ComboBox>
-        <Button Command="{Binding BrojUcenikaPolaganje}" Content="Broj ucenika koji polazu " Height="30" Margin="447,95,508,775"/>
-        <TextBox Text="{Binding Rezultat3}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="469,166,531,704" />
+        <Label Content="Id kursa" Height="30" Width="100" Margin="129,372,871,498"/>
+        <ComboBox ItemsSource="{Binding IDSvakogKursa}"  SelectedItem="{Binding IzabraniKurs2}" Width="100" Height="30" Margin="129,407,871,463"></ComboBox>
+        <Label Content="Id testa" Width="100" Height="30" Margin="303,372,697,498"/>
+        <ComboBox ItemsSource="{Binding IDSvakogTesta}"  SelectedItem="{Binding IzabraniTest2}" Width="100" Height="30" Margin="303,407,697,463"></ComboBox>
+        <Button Command="{Binding BrojUcenikaPolaganje}" Content="Broj ucenika koji polazu " Width="150" Height="30" Margin="461,407,489,463"/>
+        <TextBox Text="{Binding Rezultat3}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="662,407,338,463" />
 
     </Grid>
 </UserControl>

@@ -82,11 +82,17 @@ namespace UI.ViewModel
         {
             if(string.IsNullOrEmpty(IzabraniKurs1) || string.IsNullOrWhiteSpace(IzabraniKurs1))
             {
-                MessageBox.Show("Morate izabrati id kursa", "Greska", MessageBoxButton.OK);
+                MessageBox.Show("Morate izabrati id prijavljenog kursa", "Greska", MessageBoxButton.OK);
                 return;
             }
             DobijenNastavnik.Clear();
+            OnPropertyChanged("DobijenNastavnik");
             var lista= procedureServis.ProcImePrezimeNastavnikaZaKurs(int.Parse(IzabraniKurs1));
+            if(lista.Count == 0)
+            {
+                MessageBox.Show("Nema pogodaka", "Information", MessageBoxButton.OK);
+                return;
+            }
             lista.ForEach(x => DobijenNastavnik.Add(x));
             OnPropertyChanged("DobijenNastavnik");
         }
@@ -99,7 +105,13 @@ namespace UI.ViewModel
                 return;
             }
             DobijeneNastavnikoveTeme.Clear();
+            OnPropertyChanged("DobijeneNastavnikoveTeme");
             var lista = procedureServis.ProcNastavnikoveNastavneTeme(int.Parse(IzabraniNastavnik));
+            if (lista.Count == 0)
+            {
+                MessageBox.Show("Nema pogodaka", "Information", MessageBoxButton.OK);
+                return;
+            }
             lista.ForEach(x => DobijeneNastavnikoveTeme.Add(x));
             OnPropertyChanged("DobijeneNastavnikoveTeme");
 
@@ -118,7 +130,13 @@ namespace UI.ViewModel
                 return;
             }
             DobijenaPitanjaZaKursITest.Clear();
+            OnPropertyChanged("DobijenaPitanjaZaKursITest");
             var lista = procedureServis.ProcUcenikVidiPitanjaZaTest(int.Parse(IzabraniKurs2),int.Parse(IzabraniTest2));
+            if (lista.Count == 0)
+            {
+                MessageBox.Show("Nema pogodaka", "Information", MessageBoxButton.OK);
+                return;
+            }
             lista.ForEach(x => DobijenaPitanjaZaKursITest.Add(x));
            OnPropertyChanged("DobijenaPitanjaZaKursITest");
         }
