@@ -1,13 +1,13 @@
 ﻿USE [ProjekatBazePodataka2]
 GO
-/****** Object:  Trigger [dbo].[t_OdgovorDodavanje]    Script Date: 6/2/2021 11:09:21 PM ******/
+/****** Object:  Trigger [dbo].[t_OdgovorDodavanje]    Script Date: 6/2/2021 11:23:42 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 ALTER trigger [dbo].[t_OdgovorDodavanje]
 on [dbo].[Odgovori]
-instead of insert
+after insert
 as
 begin
 /* ne treba id odgovra, sama baza dodaje */
@@ -15,6 +15,6 @@ declare @tekst  varchar(150);
 declare @tacan bit;
 select @tekst = i.Tekst from inserted i;
 select @tacan =i.Tacan from inserted i;
-insert into Odgovori(Tekst,Tacan) values(@tekst,@tacan);
+insert into Odgovori(Tekst,Tacan) values('Ovaj odgovor je dodat iz trigera',@tacan);
 print 'Triger za dodavanje Odgovra je pozvan';
 end

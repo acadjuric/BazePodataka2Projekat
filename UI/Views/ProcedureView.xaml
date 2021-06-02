@@ -129,7 +129,7 @@
 
         </DataGrid>
 
-        <DataGrid Width="500" Height="300" Margin="572,507,28,93" IsReadOnly="True" ItemsSource="{Binding DobijenNastavnik}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+        <DataGrid Width="520" Height="300" Margin="558,163,22,0" IsReadOnly="True" ItemsSource="{Binding DobijenNastavnik}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="Ime"  Binding="{Binding Ime}" Width="200">
