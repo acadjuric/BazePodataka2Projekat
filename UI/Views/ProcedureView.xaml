@@ -7,17 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1100" Background="White">
     <Grid>
-        <ComboBox Width="100" Height="30" Margin="30,26,970,844"></ComboBox>
-        <Button Content="Nastavnik Za Kurs" Width="100" Height="30" Margin="30,95,970,775" ></Button>
+        <ComboBox ItemsSource="{Binding SviPrijavljeniKursevi}" SelectedItem="{Binding IzabraniKurs1}" Width="100" Height="30" Margin="30,26,970,844"></ComboBox>
+        <Button Command="{Binding NastavnikZaKurs}" Content="Nastavnik Za Kurs" Width="100" Height="30" Margin="30,95,970,775" ></Button>
 
-        <ComboBox Width="100" Height="30" Margin="212,26,788,844"></ComboBox>
-        <Button Content="Nastavnikove teme" Width="120" Height="30" Margin="192,95,788,775"></Button>
+        <ComboBox ItemsSource="{Binding IdSvihNastavnika}"  SelectedItem="{Binding IzabraniNastavnik}" Width="100" Height="30" Margin="212,26,788,844"></ComboBox>
+        <Button Command="{Binding NastavnikoveTeme}" Content="Nastavnikove teme" Width="120" Height="30" Margin="192,95,788,775"></Button>
 
-        <ComboBox Width="100" Height="30" Margin="517,26,483,844"></ComboBox>
-        <ComboBox Width="100" Height="30" Margin="384,26,616,844"></ComboBox>
-        <Button Content="Pitanja za Test" Width="100" Height="30" Margin="447,95,553,775"></Button>
-        <Label Content="aloooo "></Label>
-        <DataGrid Width="500" Height="300" Margin="30,163,570,437" IsReadOnly="True" ItemsSource="{Binding SveTeme}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+        <ComboBox ItemsSource="{Binding IDSvakogKursa}"  SelectedItem="{Binding IzabraniKurs2}" Width="100" Height="30" Margin="517,26,483,844"></ComboBox>
+        <ComboBox ItemsSource="{Binding IDSvakogTesta}"  SelectedItem="{Binding IzabraniTest2}" Width="100" Height="30" Margin="384,26,616,844"></ComboBox>
+        <Button Command="{Binding PitanjaZaTest}" Content="Pitanja za Test" Width="100" Height="30" Margin="447,95,553,775"></Button>
+
+        <DataGrid Width="500" Height="300" Margin="30,163,570,437" IsReadOnly="True" ItemsSource="{Binding DobijeneNastavnikoveTeme}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
 
             <DataGrid.Columns>
 
@@ -73,10 +73,10 @@
             
         </DataGrid>
 
-        <DataGrid Width="500" Height="300" Margin="30,507,570,93" IsReadOnly="True" ItemsSource="{Binding SveTeme}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+        <DataGrid Width="500" Height="300" Margin="30,507,570,93" IsReadOnly="True" ItemsSource="{Binding DobijenaPitanjaZaKursITest}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
             <DataGrid.Columns>
 
-                <DataGridTextColumn Header="Nivo Pitanja"  Binding="{Binding Naziv_Kursa}" Width="250">
+                <DataGridTextColumn Header="Nivo Pitanja"  Binding="{Binding Nivo}" Width="250">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="BorderBrush" Value="White"></Setter>
@@ -100,7 +100,7 @@
 
                 <!--Naziv Teme kolona-->
 
-                <DataGridTextColumn Header="Tekst Pitanja"  Binding="{Binding Naziv_Teme}" Width="*">
+                <DataGridTextColumn Header="Tekst Pitanja"  Binding="{Binding TekstPitanja}" Width="*">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Setter Property="BorderBrush" Value="White"></Setter>
@@ -125,8 +125,78 @@
 
         </DataGrid>
 
-        <DataGrid Width="500" Height="300" Margin="572,507,28,93">
+        <DataGrid Width="500" Height="300" Margin="572,507,28,93" IsReadOnly="True" ItemsSource="{Binding DobijenNastavnik}" AutoGenerateColumns="False"  VerticalAlignment="Top" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Opacity="0.8" Background="{x:Null}" BorderBrush="{x:Null}"  ScrollViewer.CanContentScroll="False">
+            <DataGrid.Columns>
 
+                <DataGridTextColumn Header="Ime"  Binding="{Binding Ime}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <!--Naziv Teme kolona-->
+
+                <DataGridTextColumn Header="Prezime"  Binding="{Binding Prezime}" Width="200">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+
+                <DataGridTextColumn Header="Zvanje"  Binding="{Binding Zvanje}" Width="*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderBrush" Value="White"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
     

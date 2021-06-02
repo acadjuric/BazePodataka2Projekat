@@ -80,6 +80,9 @@ namespace UI.ViewModel
                 case "prijavljeniTest":
                     CurrentViewModel = new PrijavljenTestViewModel();
                     break;
+                case "procedure":
+                    CurrentViewModel = new ProcedureViewModel();
+                    break;
                 default:
                     CurrentViewModel = new ObavestenjaViewModel(); //obavestenjaViewModel;
                     break;

@@ -67,6 +67,10 @@
             <views:PrijavljenTestView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:ProcedureViewModel}">
+            <views:ProcedureView/>
+        </DataTemplate>
+
     </Window.Resources>
     
     <Grid>

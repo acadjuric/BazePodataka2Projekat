@@ -85,6 +85,7 @@
     <Compile Include="ViewModel\PrijavljenTestViewModel.cs" />
     <Compile Include="ViewModel\PrijavljenViewModel.cs" />
     <Compile Include="ViewModel\PrimaViewModel.cs" />
+    <Compile Include="ViewModel\ProcedureViewModel.cs" />
     <Compile Include="ViewModel\TestPitanjeViewModel.cs" />
     <Compile Include="ViewModel\TestPitanjeWindowViewModel.cs" />
     <Compile Include="ViewModel\TestViewModel.cs" />
