@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="UI.Views.FunkcijeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1100" Background="White">
+    <Grid>
+
+        <ComboBox ItemsSource="{Binding SviKursevi}" SelectedItem="{Binding IzabraniKurs1}" Width="100" Height="30" Margin="30,26,970,844"></ComboBox>
+        <Button Command="{Binding TestoviZaKurs}" Content="Testovi za kurs" Width="100" Height="30" Margin="30,95,970,775" ></Button>
+        <TextBox Text="{Binding Rezultat1}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="30,166,970,704" />
+
+        <ComboBox ItemsSource="{Binding IdSvihKorisnika}"  SelectedItem="{Binding IzabraniKorisnik}" Width="100" Height="30" Margin="212,26,788,844"></ComboBox>
+        <Button Command="{Binding ObavestenjaZaOdKorisnika}" Content="Sva obavestenja" Width="120" Height="30" Margin="192,95,788,775"></Button>
+        <TextBox Text="{Binding Rezultat2}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="192,166,808,704" />
+
+        <ComboBox ItemsSource="{Binding IDSvakogKursa}"  SelectedItem="{Binding IzabraniKurs2}" Width="100" Height="30" Margin="517,26,483,844"></ComboBox>
+        <ComboBox ItemsSource="{Binding IDSvakogTesta}"  SelectedItem="{Binding IzabraniTest2}" Width="100" Height="30" Margin="384,26,616,844"></ComboBox>
+        <Button Command="{Binding BrojUcenikaPolaganje}" Content="Broj ucenika koji polazu " Height="30" Margin="447,95,508,775"/>
+        <TextBox Text="{Binding Rezultat3}" IsReadOnly="True" Width="100" Height="30" Background="AntiqueWhite" Margin="469,166,531,704" />
+
+    </Grid>
+</UserControl>

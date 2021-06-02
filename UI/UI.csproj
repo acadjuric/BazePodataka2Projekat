@@ -68,6 +68,7 @@
     <Compile Include="Helpers\CheckBoxModel.cs" />
     <Compile Include="Helpers\DialogCloser.cs" />
     <Compile Include="Helpers\MyICommand.cs" />
+    <Compile Include="ViewModel\FunkcijeViewModel.cs" />
     <Compile Include="ViewModel\KursNastavnaTemaViewModel.cs" />
     <Compile Include="ViewModel\KursNastavnaTemaWindowViewModel.cs" />
     <Compile Include="ViewModel\KursViewModel.cs" />
@@ -90,6 +91,9 @@
     <Compile Include="ViewModel\TestPitanjeWindowViewModel.cs" />
     <Compile Include="ViewModel\TestViewModel.cs" />
     <Compile Include="ViewModel\UcenikViewModel.cs" />
+    <Compile Include="Views\FunkcijeView.xaml.cs">
+      <DependentUpon>FunkcijeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\KursNastavaWindow.xaml.cs">
       <DependentUpon>KursNastavaWindow.xaml</DependentUpon>
     </Compile>
@@ -165,6 +169,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\FunkcijeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\KursNastavaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -83,6 +83,9 @@ namespace UI.ViewModel
                 case "procedure":
                     CurrentViewModel = new ProcedureViewModel();
                     break;
+                case "funckije":
+                    CurrentViewModel = new FunkcijeViewModel();
+                    break;
                 default:
                     CurrentViewModel = new ObavestenjaViewModel(); //obavestenjaViewModel;
                     break;

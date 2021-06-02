@@ -25,14 +25,8 @@ namespace UI.ViewModel
         public MyICommand NastavnikZaKurs { get; set; } //izabere se kurs trazi se nastavnik
         public MyICommand NastavnikoveTeme { get; set; } //izabere nastavnik i traze se teme njegove
         public MyICommand PitanjaZaTest { get; set; } //izabere se kurs i test trazi se pitanja
-                                                      //public static ObservableCollection<string> IDSvakogKursa { get; set; } = new ObservableCollection<string>();
-                                                      //public static ObservableCollection<string> IdSvihKorisnika { get; set; } = new ObservableCollection<string>();
+                                                      
 
-        //public static ObservableCollection<string> IDSvakogKursa { get; set; } = new ObservableCollection<string>();
-        //public static ObservableCollection<string> IdSvihKorisnika { get; set; } = new ObservableCollection<string>();
-
-        //public static ObservableCollection<string> IDSvakogKursa { get; set; } = new ObservableCollection<string>();
-        //public static ObservableCollection<string> IdSvihKorisnika { get; set; } = new ObservableCollection<string>();
         Servis.Servisi.PrijavljenServis bazaPrijvaljenih = new Servis.Servisi.PrijavljenServis();
         Servis.Servisi.NastavnikServis BazaNastavnika = new Servis.Servisi.NastavnikServis();
         Servis.Servisi.TestServis BazaTestova = new Servis.Servisi.TestServis();

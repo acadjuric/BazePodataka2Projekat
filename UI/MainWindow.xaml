@@ -71,6 +71,10 @@
             <views:ProcedureView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:FunkcijeViewModel}">
+            <views:FunkcijeView/>
+        </DataTemplate>
+
     </Window.Resources>
     
     <Grid>
